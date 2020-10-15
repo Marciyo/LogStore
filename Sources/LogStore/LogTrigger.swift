@@ -14,7 +14,8 @@ public class LogTrigger {
     
     public init(in window: UIWindow?) {
         self.window = window
-        
+        LogStore.setupLog()
+
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data, error) in
             guard let data = data else { fatalError() }
             if data.acceleration.x < -5 {
